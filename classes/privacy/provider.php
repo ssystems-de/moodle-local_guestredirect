@@ -15,16 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Local plugin 'Guest redirect' - Language pack.
+ * Local plugin 'Guest redirect' - Privacy provider.
  *
  * @package    local_guestredirect
  * @copyright  2025 Mahmoud Chehada, ssystems GmbH <mchehada@ssystems.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace local_guestredirect\privacy;
 
-$string['pluginname'] = 'Gast-Weiterleitung';
-$string['privacy:metadata'] = 'Das Plugin Gast-Weiterleitung speichert keine personenbezogenen Daten.';
-$string['setting_enable'] = 'Gast-Weiterleitung aktivieren';
-$string['setting_enable_desc'] = 'Das Plugin Gast-Weiterleitung bietet einen speziellen Weiterleitungsmechanismus, der es Benutzern ermöglicht, über eine spezielle URL als Gast auf Kurse zuzugreifen, ohne von der globalen Einstellung autologinguests abhängig zu sein. Sobald diese Einstellung aktiviert ist, werden Benutzer, die die URL /local/guestredirect/index.php?id=&lt;courseid&gt; aufrufen (wobei &lt;courseid&gt; mit der jeweiligen Kurs-ID ersetzt wird), zur Kursseite weitergeleitet und bei Bedarf als Gast angemeldet.';
+/**
+ * Local plugin 'Guest redirect' - Privacy provider.
+ *
+ * @package    local_guestredirect
+ * @copyright  2025 Mahmoud Chehada, ssystems GmbH <mchehada@ssystems.de>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
