@@ -2,3 +2,10 @@ include:
   - project: 'ssystems/ci_templates'
     ref: master
     file: '/moodle-plugin-ci/.gitlab-ci_template.yml'
+
+tests:
+  parallel:
+    matrix:
+      - MOODLE_BRANCH: [MOODLE_405_STABLE]
+        PHP_VERSION: ['8.1', '8.3']
+        DB: [pgsql, mariadb]
