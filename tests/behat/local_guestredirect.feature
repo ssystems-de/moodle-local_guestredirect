@@ -30,9 +30,10 @@ Feature: Testing local_guestredirect in local_guestredirect
       | killswitch | guestloginbutton | autologinguests | guestaccessenabled | ishouldseestring               | ishouldseecss                      |
       | 0          | 0                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
       | 1          | 0                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
-      | 1          | 0                | 0               | Yes                | Log in to Acceptance test site | .login-heading                     |
-      | 1          | 1                | 0               | No                 | Enrolment options              | #page-content                      |
+      | 1          | 0                | 0               | Yes                | Course 1                       | body.path-course-view #page-header |
+      | 1          | 1                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
       | 1          | 1                | 0               | Yes                | Course 1                       | body.path-course-view #page-header |
+      | 1          | 1                | 1               | No                 | Enrolment options              | #page-content                      |
       | 1          | 1                | 1               | Yes                | Course 1                       | body.path-course-view #page-header |
 
   Scenario Outline: Guest redirect - Verify guest redirect functionality for logged-in users (who follow the guest redirect link for any reason)
@@ -68,6 +69,7 @@ Feature: Testing local_guestredirect in local_guestredirect
       | 1          | 0                | 0               | Yes                | Course 1          | body.path-course-view #page-header |
       | 1          | 1                | 0               | No                 | Enrolment options | #page-content                      |
       | 1          | 1                | 0               | Yes                | Course 1          | body.path-course-view #page-header |
+      | 1          | 1                | 1               | No                 | Enrolment options | #page-content                      |
       | 1          | 1                | 1               | Yes                | Course 1          | body.path-course-view #page-header |
 
   Scenario Outline: Guest redirect - Verify guest redirect functionality for logged-in and enrolled users (who follow the guest redirect link for any reason)
@@ -106,6 +108,7 @@ Feature: Testing local_guestredirect in local_guestredirect
       | 1          | 0                | 0               | Yes                | Course 1         | body.path-course-view #page-header |
       | 1          | 1                | 0               | No                 | Course 1         | body.path-course-view #page-header |
       | 1          | 1                | 0               | Yes                | Course 1         | body.path-course-view #page-header |
+      | 1          | 1                | 1               | No                 | Course 1         | body.path-course-view #page-header |
       | 1          | 1                | 1               | Yes                | Course 1         | body.path-course-view #page-header |
 
   # Scenario: Guest redirect - Verify that guest redirect does not work when an invalid course ID is provided

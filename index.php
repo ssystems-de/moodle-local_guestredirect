@@ -29,24 +29,29 @@ $courseid = required_param('id', PARAM_INT);
 // Load the course by its ID.
 $course = get_course($courseid);
 
-// If the kill switch is enabled, the user is not logged in, but guest login is enabled.
-if (get_config('local_guestredirect', 'enable') == true && !isloggedin() && $CFG->guestloginbutton == true) {
-    // Create a guest user session.
-    $user = guest_user();
-    complete_user_login($user);
+// If the kill switch is enabled, and if the user is not logged in.
+if (get_config('local_guestredirect', 'enable') == true && !isloggedin()) {
 
-    // Verify that the guest user has access to the course.
-    // This redirects to the login page if the user does not have no access.
-    require_login($course, true);
+    // If the guest access is enabled in the course settings.
+    $enrolinstances = enrol_get_instances($courseid, true);
+    foreach ($enrolinstances as $key => $instance) {
+        if ($instance->enrol == 'guest') {
+            // Create a guest user session.
+            $user = guest_user();
+            complete_user_login($user);
 
-    // Otherwise.
-} else {
-    // Check if the user has access to the course.
-    require_login($course);
+            // Verify that the guest user has access to the course.
+            // This redirects to the login page if the user does not have no access.
+            require_login($course, true);
+
+            break;
+        }
+    }
 }
 
 // Create the URL for course page redirection.
 $redirecturl = new moodle_url('/course/view.php', ['id' => $courseid]);
 
 // Redirect the user to the course page.
+// Moodle Core will make sure that this page is the processed as usual.
 redirect($redirecturl);
