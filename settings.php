@@ -32,7 +32,8 @@ if ($hassiteconfig) {
 
         $name = 'local_guestredirect/enable';
         $title = get_string('setting_enable', 'local_guestredirect', null, true);
-        $description = get_string('setting_enable_desc', 'local_guestredirect', null, true);
+        $description = get_string('setting_enable_desc', 'local_guestredirect', null, true).'<br /><br />'.
+            get_string('setting_enable_note', 'local_guestredirect', null, true);
         $yesnooption = [1 => get_string('yes'),
                 0 => get_string('no'), ];
         $setting = new admin_setting_configselect($name, $title, $description, 0, $yesnooption);
