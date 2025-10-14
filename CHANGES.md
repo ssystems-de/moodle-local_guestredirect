@@ -4,7 +4,7 @@ moodle-local_guestredirect
 Changes
 -------
 
-### Unreleased
+### v4.5-3
 
 * 2025-10-14 - Release: Prepare codebase for release on moodle.org/plugins
 * 2025-07-02 - Improvement: Improve setting descriptions in the language pack.
