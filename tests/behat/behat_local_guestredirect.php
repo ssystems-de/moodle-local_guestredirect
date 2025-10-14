@@ -44,6 +44,6 @@ class behat_local_guestredirect extends behat_base {
         $courseid = $this->get_course_id($coursename);
 
         // Visit the guest redirect URL with the course ID.
-        $this->execute('behat_general::i_visit', ['/local/guestredirect/index.php?id='.$courseid]);
+        $this->execute('behat_general::i_visit', ['/local/guestredirect/index.php?id=' . $courseid]);
     }
 }
