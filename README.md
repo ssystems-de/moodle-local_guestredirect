@@ -89,6 +89,7 @@ Security considerations:
 Theme support
 -------------
 
+This plugin acts behind the scenes, therefore it should work with all Moodle themes.
 This plugin is developed and tested on Moodle Core's Boost theme.
 It should also work with Boost child themes, including Moodle Core's Classic theme. However, we can't support any other theme than Boost.
 
