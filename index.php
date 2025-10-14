@@ -31,7 +31,6 @@ $course = get_course($courseid);
 
 // If the kill switch is enabled, and if the user is not logged in.
 if (get_config('local_guestredirect', 'enable') == true && !isloggedin()) {
-
     // If the guest access is enabled in the course settings.
     $enrolinstances = enrol_get_instances($courseid, true);
     foreach ($enrolinstances as $key => $instance) {
