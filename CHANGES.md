@@ -4,6 +4,10 @@ moodle-local_guestredirect
 Changes
 -------
 
+### Unreleased
+
+* 2025-10-17 - Release: Remove german language pack as translations are now managed on AMOS.
+
 ### v4.5-3
 
 * 2025-10-14 - Release: Prepare codebase for release on moodle.org/plugins
