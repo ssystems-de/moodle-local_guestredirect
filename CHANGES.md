@@ -4,6 +4,10 @@ moodle-local_guestredirect
 Changes
 -------
 
+### Unreleased
+
+* 2026-09-24 - Prepare compatibility for Moodle 5.0.
+
 ### v4.5-r5
 
 * 2026-09-14 - Update CI integration.
