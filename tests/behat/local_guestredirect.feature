@@ -28,10 +28,10 @@ Feature: Testing local_guestredirect in local_guestredirect
 
     Examples:
       | killswitch | guestloginbutton | autologinguests | guestaccessenabled | ishouldseestring               | ishouldseecss                      |
-      | 0          | 0                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
-      | 1          | 0                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
+      | 0          | 0                | 0               | No                 | Log in to Acceptance test site | .loginform                         |
+      | 1          | 0                | 0               | No                 | Log in to Acceptance test site | .loginform                         |
       | 1          | 0                | 0               | Yes                | Course 1                       | body.path-course-view #page-header |
-      | 1          | 1                | 0               | No                 | Log in to Acceptance test site | .login-heading                     |
+      | 1          | 1                | 0               | No                 | Log in to Acceptance test site | .loginform                         |
       | 1          | 1                | 0               | Yes                | Course 1                       | body.path-course-view #page-header |
       | 1          | 1                | 1               | No                 | Enrolment options              | #page-content                      |
       | 1          | 1                | 1               | Yes                | Course 1                       | body.path-course-view #page-header |
