@@ -9,7 +9,7 @@ Moodle plugin which provides a dedicated URL to grant users guest access to cour
 Requirements
 ------------
 
-This plugin requires Moodle 5.2+
+This plugin requires Moodle 5.3+
 
 
 Motivation for this plugin
