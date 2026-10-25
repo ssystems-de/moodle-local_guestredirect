@@ -4,7 +4,7 @@ moodle-local_guestredirect
 Changes
 -------
 
-### Unreleased
+### v5.2-r2
 
 * 2026-10-25 - Make codechecker happy again
 * 2026-10-25 - Improvement: Document in the code why the guest login is intentionally done without a CSRF token check.
