@@ -4,6 +4,10 @@ moodle-local_guestredirect
 Changes
 -------
 
+### Unreleased
+
+* 2026-10-25 - Tests: Add PHPUnit tests for the guest redirect logic which was moved from index.php to a helper class for that purpose.
+
 ### v4.5-r5
 
 * 2026-09-14 - Update CI integration.
