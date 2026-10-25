@@ -21,6 +21,7 @@ Automated tests
 ---------------
 
 * The plugin has a good coverage with Behat tests which test all of the plugin's user stories.
+* Additionally, the decision logic of the redirect (kill switch, login state, guest access enrolment instance) is covered by PHPUnit tests for the \local_guestredirect\local\helper class.
 
 
 Manual tests
