@@ -23,6 +23,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// phpcs:disable moodle.Files.RequireLogin.Missing
+// Let codechecker ignore the next line because otherwise it would complain about a missing login check
+// after requiring config.php. This page is intentionally accessible without login: If applicable, the guest login
+// (including the course access check) is done by the helper class, otherwise the user is just redirected to the
+// course page which does its own login check.
 require_once(__DIR__ . '/../../config.php');
 
 // Get course ID from URL parameters.
