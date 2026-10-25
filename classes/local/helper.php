@@ -78,6 +78,11 @@ class helper {
      * @param \stdClass $course The course record.
      */
     public static function login_as_guest(\stdClass $course): void {
+        // Note: This intentionally runs on a plain GET request without a sesskey / CSRF token check.
+        // The redirect URL is meant to be shared as a link, so a per-session token cannot be embedded.
+        // The only possible outcome is that a visitor who is not logged in gets a session as the zero-privilege
+        // guest user, just like with core's autologinguests setting.
+
         // Create a guest user session.
         $user = guest_user();
         complete_user_login($user);
