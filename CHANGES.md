@@ -4,6 +4,10 @@ moodle-local_guestredirect
 Changes
 -------
 
+### Unreleased
+
+* 2026-10-27 - Bugfix: Skip the guest login instead of failing with a TypeError if the site guest user is misconfigured.
+
 ### v4.5-r6
 
 * 2026-10-25 - Make codechecker happy again
