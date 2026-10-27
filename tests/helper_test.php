@@ -223,6 +223,21 @@ final class helper_test extends \advanced_testcase {
     }
 
     /**
+     * Test that the guest login is skipped without an error if the site guest user is misconfigured.
+     */
+    public function test_login_as_guest_with_misconfigured_siteguest(): void {
+        global $CFG, $DB;
+
+        $course = $this->create_course_with_guest_access('enabled');
+        $this->setUser(null);
+        $CFG->siteguest = $DB->get_field_sql('SELECT MAX(id) FROM {user}') + 1;
+
+        helper::login_as_guest($course);
+
+        $this->assertFalse(isloggedin());
+    }
+
+    /**
      * Test the URL which the user is redirected to.
      */
     public function test_get_redirect_url(): void {
