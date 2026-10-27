@@ -74,6 +74,7 @@ class helper {
      * Create a guest user session and verify that the guest user has access to the given course.
      *
      * This redirects to the login page (or throws a require_login_exception in tests) if the guest user does not have access.
+     * If the site guest user is misconfigured, no session is created and the caller just continues with the course redirect.
      *
      * @param \stdClass $course The course record.
      */
@@ -83,8 +84,19 @@ class helper {
         // The only possible outcome is that a visitor who is not logged in gets a session as the zero-privilege
         // guest user, just like with core's autologinguests setting.
 
-        // Create a guest user session.
+        // Get the guest user.
+        // If the site guest user is misconfigured (i.e. no user record matches $CFG->siteguest), guest_user() returns false
+        // and complete_user_login() would end the request with a TypeError.
+        // In this case, we intentionally do not redirect to the login page ourselves like core's autologinguests path in
+        // require_login() does. Instead, we just skip the guest login and let the caller redirect to the course page as usual.
+        // The course page does its own login check and will send the still anonymous visitor to the login page anyway,
+        // so there is no need to duplicate core's handling of this situation here.
         $user = guest_user();
+        if (!$user) {
+            return;
+        }
+
+        // Create a guest user session.
         complete_user_login($user);
 
         // Verify that the guest user has access to the course.
